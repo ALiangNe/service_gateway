@@ -40,7 +40,7 @@ export const SIGINTTERM_HANDLER = async (e: any): Promise<void> => {
     try {
         await stopRedisModules()
         await stopMcpModules()
-        await stopPostgresModules()
+        // await stopPostgresModules()
         VECTOR_STORE === 'chroma' ? stopChromaModules() : null
         // stopHTTPServer()
     } catch (err) {
