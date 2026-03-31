@@ -1,7 +1,7 @@
 /**
  * Application level (Process Level) Handlers
  */
-import { initRedisModules, initPostgresModules, initChromaModules, initLlmModules, initHTTPServer, stopRedisModules, stopPostgresModules, stopChromaModules, stopHTTPServer, initMcpModules, stopMcpModules } from '../init'
+import { initRedisModules, initChromaModules, initLlmModules, initHTTPServer, stopRedisModules, stopChromaModules, stopHTTPServer, initMcpModules, stopMcpModules } from '../init'
 import { SERVICE_NAME, VECTOR_STORE } from '../config'
 
 /**
@@ -13,7 +13,6 @@ export const SIGSTART_HANDLER = async (e: string): Promise<void> => {
     console.log(`-------- ${new Date()} --------\n         SIGNAL: ${e}\n${SERVICE_NAME} initialisation STARTED`)
 
     try {
-        await initPostgresModules()
         VECTOR_STORE === 'chroma' ? initChromaModules() : null
         await initLlmModules()
         await initRedisModules()
