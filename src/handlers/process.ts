@@ -13,8 +13,8 @@ export const SIGSTART_HANDLER = async (e: string): Promise<void> => {
     console.log(`-------- ${new Date()} --------\n         SIGNAL: ${e}\n${SERVICE_NAME} initialisation STARTED`)
 
     try {
-        await initLlmModules()
-        await initRedisModules()
+        // await initLlmModules()
+        // await initRedisModules()
         // await initMcpModules()
         // initHTTPServer()
         // @ts-ignore
