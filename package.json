@@ -1,0 +1,40 @@
+{
+  "name": "llm-service",
+  "version": "1.0.0",
+  "description": "LLM Service",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "npm run build && node --env-file=.env dist/app.js",
+    "build": "npx tsc",
+    "pre:image": "npm run build && cp package-dist.json dist/package.json && cp .dockerignore dist",
+    "zip": "npm run build && cp package*.json dist && cp .env dist",
+    "start": "node --env-file=.env dist/app.js"
+  },
+  "keywords": [
+    "service",
+    "expressjs",
+    "llm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "amqplib": "^0.10.9",
+    "axios": "^1.13.5",
+    "chromadb": "^3.3.1",
+    "cors": "^2.8.6",
+    "express": "^4.18.2",
+    "openai": "^6.24.0",
+    "pg": "^8.18.0",
+    "pgvector": "^0.2.1",
+    "redis": "^4.6.12"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.8",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.21",
+    "@types/node": "^24.3.1",
+    "@types/pg": "^8.16.0",
+    "typescript": "^5.3.3"
+  }
+}
